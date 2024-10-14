@@ -4,11 +4,15 @@ import Grid from "@mui/material/Grid2";
 
 // * AddTodo component
 // * Task 6: Continues
-const AddTodo = () => {
-
+const AddTodo = ({ handleAddTodo }) => {
+  const [addTask, setAddTask] = useState("");
   // * Task 6: Ends here
 
   // * Task 7: Starts here
+
+  function handleChange(event) {
+    setAddTask(event.target.value);
+  }
 
   // * Task 7: Continues to TextField component below
 
@@ -21,7 +25,7 @@ const AddTodo = () => {
             placeholder="Add a to-do"
             size="small"
             // * Task 7: Continues
-
+            onChange={(event) => handleChange(event)}
             // * Task 7: Ends here
           />
         </Grid>
@@ -29,7 +33,7 @@ const AddTodo = () => {
         <Button
           variant="contained"
           // * Task 6: Continue
-
+          onClick={() => handleAddTodo(addTask)}
           // * Task 6: Ends here
         >
           Add
